@@ -1,0 +1,42 @@
+<h2>Enter API Key</h2>
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <label for="name">Enter your name:</label>
+  <input id="name" type="text" formControlName="apiKey" />
+
+  <button type="submit">Submit</button>
+</form>
+
+<hr />
+
+<div *ngFor="let article of articles" class="article-card">
+  <h2>{{ article.title }}</h2>
+  <p><strong>Section:</strong> {{ article.section }} / {{ article.subsection }}</p>
+  <p><strong>By:</strong> {{ article.byline }}</p>
+  <p><strong>Published:</strong> {{ article.published_Date }}</p>
+  <p>{{ article.abstract }}</p>
+  <a [href]="article.url" target="_blank">Read More</a>
+
+   <div class="tree">
+    <ul>
+      <li>
+        <strong>Multimedia</strong>
+        <ul>
+          <li *ngFor="let media of article.multimedia">
+            <strong>Format:</strong> {{ media.format }}
+            <ul>
+              <li><strong>URL:</strong> <a [href]="media.url" target="_blank">{{ media.url }}</a></li>
+              <li *ngIf="media.caption"><strong>Caption:</strong> {{ media.caption }}</li>
+              <li><strong>Copyright:</strong> {{ media.copyright }}</li>
+              <li>
+                <img [src]="media.url" [alt]="media.caption" width="150" />
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <hr />
+</div>
+<p *ngIf="error" class="error">{{ error }}</p>

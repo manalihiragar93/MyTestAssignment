@@ -1,0 +1,45 @@
+.article-card {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+}
+
+.tree ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.tree li {
+  margin: 0.25rem 0;
+  padding-left: 1rem;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.tree li::before {
+  content: '├── ';
+  position: absolute;
+  left: 0;
+  color: #555;
+  font-weight: bold;
+}
+
+.tree li:last-child::before {
+  content: '';
+}
+
+img {
+  margin-top: 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.tree li::before {
+  content: ". ";
+}
+
+.tree li:last-child::before {
+  content: "";
+}
